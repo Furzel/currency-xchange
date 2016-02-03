@@ -2,7 +2,7 @@
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= button_to "Edit", edit_user_calculation_path(@calculation.user, @calculation), class: "btn btn-default", method: :get %>  
+    <%= button_to "Edit", edit_calculation_path(@calculation), class: "btn btn-default", method: :get %>  
     <h2 class="calculation_header">
       Converting <%= @calculation.amount %> <%= @calculation.base_currency %> to <%= @calculation.target_currency %> 
     </h2>
