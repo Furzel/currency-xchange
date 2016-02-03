@@ -11,7 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160131171123) do
+ActiveRecord::Schema.define(version: 20160203151308) do
+
+  create_table "calculations", force: :cascade do |t|
+    t.string   "base_currency"
+    t.string   "target_currency"
+    t.integer  "amount"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "nb_weeks"
+    t.integer  "user_id"
+  end
+
+  add_index "calculations", ["user_id", "updated_at"], name: "index_calculations_on_user_id_and_updated_at"
+  add_index "calculations", ["user_id"], name: "index_calculations_on_user_id"
+
+  create_table "daily_currency_rates", force: :cascade do |t|
+    t.date     "day"
+    t.string   "currency"
+    t.text     "rates"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "daily_currency_rates", ["day", "currency"], name: "index_daily_currency_rates_on_day_and_currency"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

@@ -1,0 +1,83 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <%= form_for(@calculation), :html => {class: 'form-inline'}) do |f| %>
+      <%= render 'error_messages' %>
+
+      <div class="form-group">
+        I want to change 
+        <%= f.number_field :amount, class: "form-control" %>
+        <%= f.select(:base_currency, options_for_select([
+            ["AUD", "AUD"],
+            ["BGN", "BGN"],
+            ["BRL", "BRL"],
+            ["CAD", "CAD"],
+            ["CHF", "CHF"],
+            ["CNY", "CNY"],
+            ["CZK", "CZK"],
+            ["DKK", "DKK"],
+            ["EUR", "EUR"],
+            ["GBP", "GBP"],
+            ["HKD", "HKD"],
+            ["HRK", "HRK"],
+            ["HUF", "HUF"],
+            ["IDR", "IDR"],
+            ["ILS", "ILS"],
+            ["INR", "INR"],
+            ["JPY", "JPY"],
+            ["KRW", "KRW"],
+            ["MXN", "MXN"],
+            ["MYR", "MYR"],
+            ["NOK", "NOK"],
+            ["NZD", "NZD"],
+            ["PHP", "PHP"],
+            ["PLN", "PLN"],
+            ["RON", "RON"],
+            ["RUB", "RUB"],
+            ["SEK", "SEK"],
+            ["SGD", "SGD"],
+            ["THB", "THB"],
+            ["TRY", "TRY"],
+            ["USD", "USD"],
+            ["ZAR", "ZAR"]
+          ], :selected => @calculation.base_currency ? @calculation.base_currency : "EUR"), class: "form-control")%>
+        to
+        <%= f.select(:target_currency, options_for_select([
+            ["AUD", "AUD"],
+            ["BGN", "BGN"],
+            ["BRL", "BRL"],
+            ["CAD", "CAD"],
+            ["CHF", "CHF"],
+            ["CNY", "CNY"],
+            ["CZK", "CZK"],
+            ["DKK", "DKK"],
+            ["EUR", "EUR"],
+            ["GBP", "GBP"],
+            ["HKD", "HKD"],
+            ["HRK", "HRK"],
+            ["HUF", "HUF"],
+            ["IDR", "IDR"],
+            ["ILS", "ILS"],
+            ["INR", "INR"],
+            ["JPY", "JPY"],
+            ["KRW", "KRW"],
+            ["MXN", "MXN"],
+            ["MYR", "MYR"],
+            ["NOK", "NOK"],
+            ["NZD", "NZD"],
+            ["PHP", "PHP"],
+            ["PLN", "PLN"],
+            ["RON", "RON"],
+            ["RUB", "RUB"],
+            ["SEK", "SEK"],
+            ["SGD", "SGD"],
+            ["THB", "THB"],
+            ["TRY", "TRY"],
+            ["USD", "USD"],
+            ["ZAR", "ZAR"]
+          ], :selected => @calculation.target_currency ? @calculation.target_currency : "EUR"), class: "form-control")%>
+        . I cant wait up to <%= f.number_field :nb_weeks, class: "form-control" %>
+        <%= f.submit "Start", class: "btn btn-primary" %>
+      </div>
+    <% end %> 
+  </div>
+</div>

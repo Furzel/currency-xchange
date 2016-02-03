@@ -1,0 +1,8 @@
+<tr>
+  <td><%= calculation.amount %> <%= calculation.base_currency %> to <%= calculation.target_currency %></td>
+  <td><%= calculation.updated_at.to_s %></td>
+  <td>
+    <%= link_to "Edit", edit_calculation_path(calculation) %>
+    <%= link_to "Delete", calculation_path(calculation), method: :delete, data: { confirm: 'Are you sure ?' } %>
+  </td> 
+<tr>

@@ -1,1 +1,13 @@
-<%= @user.name %>, <%= @user.email %>
+
+<%= button_to "New calculation", calculation_path, class: "btn btn-primary", method: :get %>
+
+<h1>Your have <%= @user.calculations.length %> calculations</h1>
+
+<table class="table">
+  <tr>
+    <th>Description</th>
+    <th>Last update</th>
+    <th>Actions</th>
+  </tr>
+  <%= render @user.calculations %>
+</table>

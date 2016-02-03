@@ -1,0 +1,40 @@
+<h1>Calculation</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= button_to "Edit", edit_user_calculation_path(@calculation.user, @calculation), class: "btn btn-default", method: :get %>  
+    <h2 class="calculation_header">
+      Converting <%= @calculation.amount %> <%= @calculation.base_currency %> to <%= @calculation.target_currency %> 
+    </h2>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <table class="table">
+      <tr>
+        <th>Week</th>
+        <th>Rate</th>
+        <th>Sum</th>
+        <th>Profit / Loss</th>
+        <th>Rank</th> 
+      </tr>
+
+      <% @calculation.table_weekly_rates.each do |week_rate| %>
+        <tr>
+          <td>Week <%= week_rate["week"] %></td>
+          <td>1 <%= @calculation.base_currency %> -> <%= week_rate["rate"] %> <%= @calculation.target_currency %></td>
+          <td><%= week_rate["sum"] %></td>
+          <td>
+            <% if week_rate["profit"] %>
+              <span class="profit"><%= week_rate["profit"] %> %</span>
+            <% elsif week_rate["loss"] %>
+              <span class="loss"><%= week_rate["loss"] %> %</span>
+            <% end %>
+          </td>
+          <td><%= week_rate["rank"] %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>  
