@@ -10,6 +10,30 @@
   color: red;
 }
 
-.edit-button {
-  display: inline
+.calculation-show-header form.button_to {
+  float: right;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+
+.calculation-show-header h2 {
+  margin-left: 20px;
+}
+
+.calculation-edit-form {
+  line-height: 4;
+  font-size: x-large;
+
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.calculation-edit-form select {
+  height: 34px;
+  font-size: large;
+}
+
+.inline-form-line {
+  margin: 10px;
 }
